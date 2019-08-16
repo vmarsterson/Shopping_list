@@ -21,4 +21,8 @@ h1 {
 	line-height: 4em;
 }
 
-.title_bar
+.title_bar {
+	 background-image: linear-gradient(to top left, #FFF, #FFF, #e7f8fe, #e7f8fe, #e7f8fe, #e7f8fe, #d0f1fe, #b9eafd, #8addfc, #16BCFA, #16BCFA, #16BCFA);
+	 width: 100%;
+	 
+}
