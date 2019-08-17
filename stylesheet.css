@@ -26,7 +26,7 @@ h1 {
 	font-family: Optima;
 	color: #D5D5D5;
 	font-size: 2em;
-	line-height: 1.5em;
+	line-height: 2em;
 	padding-top: 75px;
 	padding-bottom: 75px;
 	text-align: center;
@@ -53,8 +53,8 @@ h1 {
 .grid {
 	font-family: Optima;
 	font-size: 2em;
-	padding-left: 25%;
-	padding-right: 25%;
+	padding-left: 15%;
+	padding-right: 15%;
 	line-height: 1.5em;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -85,7 +85,6 @@ h1 {
 .b {
 	background-color: white;
 	color: #B0E2FF;
-	text-transform: capitalize;
 	padding-left: 30px;
 }
 
@@ -97,4 +96,18 @@ h1 {
 
 li {
 	list-style-type: none;
+}
+
+.caviat {
+	padding-top: 50px;
+	font-size: 1.25em;
+	text-align: center;
+	overflow-wrap: normal;
+	color: #D5D5D5;
+}
+
+button {
+	font-size: 0.5em;
+	padding: 10px;
+	color: black;
 }

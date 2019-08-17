@@ -29,7 +29,7 @@
 			<input name="item" type="text" label="name" required/>
 			<label for="quantity">Quantity</label>
 			<input name="quantity" type="number" label="quantity" required/>
-			<label for="type">Food Type</label>
+			<label for="type">Food Type*</label>
 			<input name="type" type="text" label="type" required/>
 			<button type="submit">Add Item</button> 
 		</form>
@@ -42,13 +42,15 @@
 		<p class="box a"><b>BOUGHT?</b></p>
 		
 
-		<%list.each do |id,item,quantity,bought,type|%>
+		<%list.each do |id,item,quantity,type,bought|%>
 		<li class="box b"><%=item%></li>
 		<li class="box b"><%=quantity%></li>
 		<li class="box b"><%=type%></li>
 		<li class="box b c"><input type="checkbox" name="bought"<%= bought == 0 ? "" : "checked"%> onclick="update(<%=id%>)"/></li>
 		<%end%>
 	</div>
+
+	<p class="caviat"> * E.g. Dairy, fruit, or misc. Our handy shopping list will group items together based on their type so you can easily find items that are likely to be located in the same part of your shop! </p>
 
 <!-- 		<div class="list">
 		<ul>

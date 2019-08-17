@@ -24,13 +24,13 @@ class App
 		end
 
 		if req.env["REQUEST_METHOD"] == "POST" #post writes things onto the database directly from the user input. We're linking it to 
-			item = req.POST["item"]
+			item = req.POST["item"].capitalize
 			quantity = req.POST["quantity"].to_i
-			type = req.POST["type"]
-			@db.execute("INSERT INTO products (item, quantity, type, bought) VALUES (?,?,?,?);", item, quantity, type, 0)
+			type = req.POST["type"].capitalize
+			@db.execute("INSERT INTO products (item, quantity, type, bought) VALUES (?,?,?,?);", item, quantity, type,  0)
 		end
 
-		list = @db.execute("SELECT * FROM products;")
+		list = @db.execute("SELECT * FROM products ORDER BY type ASC;")
 		resp.write ERB.new(@tpl).result(binding)
 		resp.finish
 	end
