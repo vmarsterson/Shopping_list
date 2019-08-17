@@ -18,6 +18,8 @@ class App
 		req = Rack::Request.new(env)
 		resp = Rack::Response.new
 
+		time = Time.now.strftime("%d.%m.%y")
+
 		if req.path == "/stylesheet.css"
 			resp.write File.read("./stylesheet.css")
 			return resp.finish
