@@ -1,21 +1,72 @@
 <!-- This is the basic HTML structure, for which I will need to encorporate Ruby using %s --> 
 <!DOCTYPE html>
 
+<!-- <svg width="35" height="35" viewbox="0 0 85 85" xmlns="http://www.w3.org/2000/svg"><path d="M42.5 85C19.028 85 0 65.972 0 42.5S19.028 0 42.5 0 85 19.028 85 42.5 65.972 85 42.5 85zm-4.963-14.716c5.924-17.481 10.756-29.682 14.495-36.601C55.77 26.763 60.76 20.79 67 15.765c-2.428-.51-4.467-.765-6.118-.765-3.108 0-5.603.77-7.484 2.313-1.882 1.541-4.025 4.546-6.428 9.013-4.346 8.207-7.927 16.886-10.744 26.04-2.476-4.298-4.528-7.211-6.155-8.74-1.626-1.53-3.484-2.295-5.572-2.295-1.7 0-3.532.813-5.499 2.44 3.448 3.229 6.762 7.32 9.942 12.273l1.457 2.222 1.93 3.022c1.214 1.918 2.95 4.917 5.208 8.996z" fill="currentColor" fill-rule="evenodd"/></svg>
+ -->
+
+<!-- Functionality to think about: 
+ - Order based on food type (food type)
+ - Add name to customize title
+ - If you enter a food I deem to be gross, trigger error message -->
+
 <head> 
 	<title> Shopping List </title>
-	<link rel="stylesheer" type="text/css" href="stylesheet.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/stylesheet.css" media="screen">
 	<meta name="viewport" content="width=devide-width, initial-scale=1.0">
 	<meta name="description" content="A handy app to help you keep track of your shopping list!">
-	<style scoped> @import url("vmarsterson/shopping_list/stylesheet.css"); </style>
 </head>
 
 <body>
 
 	<div class="title_bar">
-		<h1> Shopping List </h1>
-		<img src=>
+		<h1> SHOPPING LIST </h1>
 	</div>
 
+	<div class="questions">
+		<p> What do you need to buy? </p>
+		<form method="POST" action="/">
+			<label for="item">Item</label>
+			<input name="item" type="text" label="name" required/>
+			<label for="quantity">Quantity</label>
+			<input name="quantity" type="number" label="quantity" required/>
+			<label for="type">Food Type</label>
+			<input name="type" type="text" label="type" required/>
+			<button type="submit">Add Item</button> 
+		</form>
+	</div>
+
+	<div class="grid">
+		<p class="box a"><b>ITEM</b></p>
+		<p class="box a"><b>QUANTITY</b></p>
+		<p class="box a"><b>TYPE</b></p>
+		<p class="box a"><b>BOUGHT?</b></p>
+		
+
+		<%list.each do |id,item,quantity,bought,type|%>
+		<li class="box b"><%=item%></li>
+		<li class="box b"><%=quantity%></li>
+		<li class="box b"><%=type%></li>
+		<li class="box b c"><input type="checkbox" name="bought"<%= bought == 0 ? "" : "checked"%> onclick="update(<%=id%>)"/></li>
+		<%end%>
+	</div>
+
+<!-- 		<div class="list">
+		<ul>
+			<%list.each do |id,item,quantity,bought|%>
+				<li>
+					<%=item%>
+					<%=quantity%>
+					<input type="checkbox" name="bought" <%= bought == 0 ? "" : "checked"%> onclick="update(<%=id%>)"/>
+				</li>
+			<%end%>
+		</ul>
+	</div> -->
+
+	<script>
+		function update(id) {
+			console.log({id})
+		}
+	</script>
 </body>
 
 <footer>
