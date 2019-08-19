@@ -19,13 +19,19 @@
 <body>
 
 	<div class="title_bar">
-		<h1> SHOPPING LIST </h1>
+		<h1><%=@name%>'s SHOPPING LIST</h1>
 		<h2><%=time%></h2>
 	</div>
 
 	<div class="questions">
+		<p>What's your name? </p>
+		<form method="POST" action='/name'>
+			<input name="name" type="text" label="name">
+			<button type="submit">Submit</button>
+		</form>
+
 		<p> What do you need to buy? </p>
-		<form method="POST" action="/">
+		<form method="POST" action="/products"> <!-- from the current URL-->
 			<label for="item">Item</label>
 			<input name="item" type="text" label="name" required/>
 			<label for="quantity">Quantity</label>
@@ -50,6 +56,10 @@
 		<li class="box b c"><input type="checkbox" name="bought"<%= bought == 0 ? "" : "checked"%> onclick="update(<%=id%>)"/></li>
 		<%end%>
 	</div>
+
+	<form method="POST" action="/products/clear">
+		<button name="clear" type="submit">Clear</button>
+	</form>
 
 	<p class="caviat"> * E.g. Dairy, fruit, or misc. Our handy shopping list will group items together based on their type so you can easily find items that are likely to be located in the same part of your shop! </p>
 
